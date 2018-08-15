@@ -1,0 +1,14 @@
+FROM ubuntu:18.04
+
+RUN apt-get update \
+	&& apt-get install --yes wget
+
+WORKDIR /app
+
+RUN wget -O - https://downloads.getmonero.org/linux64 | tar --extract --bzip2 --strip-components=2 --file=-
+
+EXPOSE 18080
+EXPOSE 18081
+VOLUME [ "/app/data" ]
+
+ENTRYPOINT [ "/app/monerod", "--data-dir", "/app/data", "--rpc-bind-ip", "0.0.0.0", "--confirm-external-bind", "--restricted-rpc", "--non-interactive" ]
