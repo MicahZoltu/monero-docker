@@ -21,10 +21,9 @@ jobs:
 
       - name: Set VERSIONs
         run: |
-          [[ "${{ github.ref }}" != "refs/tags/v"* ]] && echo "Expected tag to be of the form v#.#.#" && exit 1
+          [[ "${{ github.ref }}" != "refs/tags/v"* ]] && echo "Expected tag to be of the form v#.#.#.#" && exit 1
           # Strip git ref prefix and leading `v` from version
           VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/v\(.*\),\1,')
-          echo VERSION=$VERSION >> $GITHUB_ENV
 
       - name: Log in to the Container registry
         uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
