@@ -5,7 +5,7 @@ RUN apt-get update \
 
 WORKDIR /app
 
-RUN wget -O - https://downloads.getmonero.org/cli/monero-linux-x64-v0.18.1.2.tar.bz2 | tar --extract --bzip2 --strip-components=1 --file=-
+RUN wget -O - https://downloads.getmonero.org/cli/monero-linux-x64-v0.18.2.2.tar.bz2 | tar --extract --bzip2 --strip-components=1 --file=-
 
 EXPOSE 18080
 EXPOSE 18081
